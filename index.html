@@ -55,39 +55,28 @@
       <p><strong>2025 – Present:</strong> Developer & Designer<br>Can code in 2+ languages, designs banners & logos</p>
       <p><strong>Late 2024:</strong> Banner Designer<br>Started learning banners and HTML</p>
     </div>
-  </section>
+  
+<div class="box">
+    <h2>Music Player</h2>
+    <p>Enjoy a few tracks I like while browsing.</p>
+    <audio controls style="width: 100%; margin-bottom: 10px;">
+        <source src="audio/get-you-lyrics-ft-kali-uchis.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <audio controls style="width: 100%; margin-bottom: 10px;">
+        <source src="audio/loose.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <audio controls style="width: 100%;">
+        <source src="audio/best-part-lyrics-ft-daniel-caesar.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+</div>
+
+</section>
 
   <footer>
     <p>© 2025 | bzclkk</p>
   </footer>
-
-<div class="music-player">
-  <h2>Music Player</h2>
-  <p id="current-track">Now Playing: None</p>
-  <audio id="audio-player" controls>
-    <source id="audio-source" src="" type="audio/mp3">
-    Your browser does not support the audio element.
-  </audio>
-  <ul id="track-list">
-    <li onclick="playTrack('get-you-lyrics-ft-kali-uchis.mp3')">Get You - Kali Uchis</li>
-    <li onclick="playTrack('loose.mp3')">Loose</li>
-    <li onclick="playTrack('best-part-lyrics-ft-daniel-caesar.mp3')">Best Part - Daniel Caesar</li>
-  </ul>
-</div>
-
-<script>
-  function playTrack(filename) {
-    const audioPlayer = document.getElementById("audio-player");
-    const audioSource = document.getElementById("audio-source");
-    const trackNameDisplay = document.getElementById("current-track");
-
-    audioSource.src = "audio/" + filename;
-    audioPlayer.load();
-    audioPlayer.play();
-
-    trackNameDisplay.textContent = "Now Playing: " + filename.replace(".mp3", "").replace(/-/g, " ");
-  }
-</script>
-
 </body>
 </html>
