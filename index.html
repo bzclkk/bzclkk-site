@@ -9,38 +9,44 @@
   <link rel="icon" href="favicon.ico" />
 </head>
 <body>
-  <div class="card">
-    <h1>👋 hey, i'm bzclkk</h1>
-    <p>🧑‍💻 16 y/o developer</p>
-    <p>⚙️ creator of custom utilities & mods</p>
-  </div>
-
-  <div class="card">
-    <h2>📂 projects</h2>
-    <ul>
-      <li>🛠️ FSRPx Utilities</li>
-      <li>📡 Maple Toronto Utilities</li>
-      <li>🧪 LeakingERLC Utilities</li>
-      <li>👻 AltingERLC Utilities</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>🎵 now playing</h2>
-    <div class="track-info">
-      <h3 id="track-title">Title</h3>
-      <p id="track-artist">Artist</p>
+  <div class="container">
+    <div class="card">
+      <h2>👋 About Me</h2>
+      <p>Hey! I'm <strong>bzclkk</strong>, a 16 y/o dev passionate about web tools and modding. Former ERLC modder (no longer active). </p>
     </div>
-    <audio id="audio" preload="auto"></audio>
-    <div class="controls">
-      <button onclick="prevTrack()">⏮️</button>
-      <button onclick="togglePlay()">⏯️</button>
-      <button onclick="nextTrack()">⏭️</button>
+
+    <div class="card">
+      <h2>🛠️ Projects</h2>
+      <ul>
+        <li>FSRPx Utilities</li>
+        <li>Maple Toronto Utilities</li>
+        <li>LeakingERLC Utilities</li>
+        <li>AltingERLC Utilities</li>
+      </ul>
     </div>
-    <input type="range" id="seek" value="0" step="1" />
-    <div class="timestamps">
-      <span id="current">0:00</span>
-      <span id="duration">0:00</span>
+
+    <div class="card">
+      <h2>🎧 Music Player</h2>
+      <div class="track-info">
+        <h3 id="track-title">Title</h3>
+        <p id="track-artist">Artist</p>
+      </div>
+      <audio id="audio" preload="auto"></audio>
+      <div class="controls">
+        <button onclick="prevTrack()">⏮️</button>
+        <button onclick="togglePlay()">⏯️</button>
+        <button onclick="nextTrack()">⏭️</button>
+      </div>
+      <input type="range" id="seek" value="0" step="1" />
+      <div class="timestamps">
+        <span id="current">0:00</span>
+        <span id="duration">0:00</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📬 Contact</h2>
+      <p>DM me @bzclkk or catch me on Discord for collabs or commissions.</p>
     </div>
   </div>
 
