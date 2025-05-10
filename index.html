@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<style>
+@keyframes pulseGlow {
+    0% { color: #ffffff; text-shadow: 0 0 5px #ffffff; }
+    50% { color: #00ccff; text-shadow: 0 0 20px #00ccff; }
+    100% { color: #ffffff; text-shadow: 0 0 5px #ffffff; }
+}
+.pulse-name {
+    animation: pulseGlow 3s infinite;
+}
+</style>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BZCLKK</title>
+  <title class="pulse-name">BZCLKK</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <h1>BZCLKK</h1>
+    <h1 class="pulse-name">BZCLKK</h1>
   </header>
 
   <section class="grid">
     <div class="card">
       <h2>About Me</h2>
-      <p>Heyo! I am BZCLKK, I am 16 years old, and I love coding and graphic design. Cheers!</p>
+      <p class="pulse-name">Heyo! I am BZCLKK, I am 16 years old, and I love coding and graphic design. Cheers!</p>
     </div>
 
     <div class="card">
