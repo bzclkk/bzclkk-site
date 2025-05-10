@@ -46,3 +46,26 @@ footer {
   color: #888;
   margin-top: 2rem;
 }
+.music-player {
+  background: #1e1e2f;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  margin-top: 30px;
+}
+
+#track-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+#track-list li {
+  cursor: pointer;
+  padding: 8px;
+  transition: background 0.3s;
+}
+
+#track-list li:hover {
+  background: #2e2e3f;
+}
