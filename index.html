@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bzclkk | portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" />
+</head>
+<body>
+  <div class="card">
+    <h1>👋 hey, i'm bzclkk</h1>
+    <p>🧑‍💻 16 y/o developer</p>
+    <p>⚙️ creator of custom utilities & mods</p>
+  </div>
+
+  <div class="card">
+    <h2>📂 projects</h2>
+    <ul>
+      <li>🛠️ FSRPx Utilities</li>
+      <li>📡 Maple Toronto Utilities</li>
+      <li>🧪 LeakingERLC Utilities</li>
+      <li>👻 AltingERLC Utilities</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>🎵 now playing</h2>
+    <div class="track-info">
+      <h3 id="track-title">Title</h3>
+      <p id="track-artist">Artist</p>
+    </div>
+    <audio id="audio" preload="auto"></audio>
+    <div class="controls">
+      <button onclick="prevTrack()">⏮️</button>
+      <button onclick="togglePlay()">⏯️</button>
+      <button onclick="nextTrack()">⏭️</button>
+    </div>
+    <input type="range" id="seek" value="0" step="1" />
+    <div class="timestamps">
+      <span id="current">0:00</span>
+      <span id="duration">0:00</span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
