@@ -46,3 +46,25 @@ footer {
   color: #888;
   margin-top: 2rem;
 }
+
+.controls {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.controls button {
+  background: #333;
+  border: none;
+  color: white;
+  padding: 0.5rem 0.7rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.controls input[type=range] {
+  flex: 1;
+  height: 4px;
+}
