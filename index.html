@@ -1,94 +1,191 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-<style>
-@keyframes pulseGlow {
-    0% { color: #ffffff; text-shadow: 0 0 5px #ffffff; }
-    50% { color: #00ccff; text-shadow: 0 0 20px #00ccff; }
-    100% { color: #ffffff; text-shadow: 0 0 5px #ffffff; }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0f0f12;
+  color: white;
 }
-.pulse-name {
-    animation: pulseGlow 3s infinite;
+
+.loader-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #0f0f12;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9999;
+  transition: opacity 0.3s ease;
 }
-</style>
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title class="pulse-name">BZCLKK</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <h1 class="pulse-name">BZCLKK</h1>
-  </header>
+.loader-img {
+  width: 100px;
+  margin-bottom: 10px;
+}
 
-  <section class="grid">
-    <div class="card">
-      <h2>About Me</h2>
-      <p class="pulse-name">Heyo! I am BZCLKK, I am 16 years old, and I love coding and graphic design. Cheers!</p>
-    </div>
+.loader-text {
+  font-size: 1.5rem;
+  color: aqua;
+}
 
-    <div class="card">
-      <h2>Skills</h2>
-      <ul>
-        <li>NodeJS Coding</li>
-        <li>HTML Coding</li>
-        <li>Graphic Design</li>
-      </ul>
-    </div>
+.hidden {
+  display: none;
+}
 
-    <div class="card">
-      <h2>Projects</h2>
-      <ul>
-        <li>Newport Utilities</li>
-        <li>Miami Utilities</li>
-        <li>Newport Website</li>
-      </ul>
-    </div>
+.container {
+  padding: 20px;
+  text-align: center;
+}
 
-    <div class="card">
-      <h2>Services</h2>
-      <ul>
-        <li>Graphic Design</li>
-        <li>Web Development</li>
-        <li>Bot Development</li>
-      </ul>
-    </div>
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-    <div class="card">
-      <h2>Achievements</h2>
-      <p><strong>20+</strong> Projects<br><strong>35+</strong> Clients<br><strong>1.5+</strong> Years Experience</p>
-    </div>
+.profile-pic img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 3px solid cyan;
+  object-fit: cover;
+}
 
-    <div class="card">
-      <h2>Experience</h2>
-      <p><strong>2025 – Present:</strong> Developer & Designer<br>Can code in 2+ languages, designs banners & logos</p>
-      <p><strong>Late 2024:</strong> Banner Designer<br>Started learning banners and HTML</p>
-    </div>
-  
-<div class="box">
-    <h2>Music Player</h2>
-    <p>Enjoy a few tracks I like while browsing.</p>
-    <audio controls style="width: 100%; margin-bottom: 10px;">
-        <source src="audio/get-you-lyrics-ft-kali-uchis.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-    <audio controls style="width: 100%; margin-bottom: 10px;">
-        <source src="audio/loose.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-    <audio controls style="width: 100%;">
-        <source src="audio/best-part-lyrics-ft-daniel-caesar.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-</div>
+.header-text h1 {
+  margin: 10px 0;
+  color: cyan;
+}
 
-</section>
+.services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
 
-  <footer>
-    <p>© 2025 | bzclkk</p>
-  </footer>
-</body>
-</html>
+.service-card {
+  background: #1b1b22;
+  padding: 20px;
+  border-radius: 12px;
+  width: 180px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  text-align: center;
+}
+
+.service-card:hover {
+  transform: scale(1.05);
+  background: #25252d;
+}
+
+.service-card i {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: aqua;
+}
+
+.gallery-page {
+  padding: 30px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: cyan;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #1a1a1f;
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 700px;
+  width: 90%;
+  color: white;
+  position: relative;
+}
+
+.modal-gallery {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.modal-item {
+  text-align: center;
+  width: 150px;
+}
+
+.modal-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+}
+
+.lightbox {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10001;
+}
+
+.lightbox.hidden {
+  display: none;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
