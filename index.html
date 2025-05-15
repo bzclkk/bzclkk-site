@@ -1,191 +1,140 @@
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #0f0f12;
-  color: white;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bzclkk | Portfolio</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta property="og:title" content="Bzclkk | Portfolio" />
+  <meta property="og:description" content="Check out my builds, designs, and projects!" />
+  <meta property="og:image" content="https://bzclkk.github.io/bzclkk/embed-preview.png" />
+  <meta property="og:url" content="https://bzclk.xyz" />
+  <meta name="twitter:card" content="summary_large_image" />
+</head>
+<body>
+  <!-- Loader -->
+  <div class="loader-wrapper">
+    <img src="images/hello-kitty.png" class="loader-img" alt="Loading..." />
+    <div class="loader-text">bzclk</div>
+  </div>
 
-.loader-wrapper {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: #0f0f12;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  z-index: 9999;
-  transition: opacity 0.3s ease;
-}
+  <!-- Main Content -->
+  <div class="container hidden" id="mainContent">
+    <header class="profile-header">
+      <div class="profile-pic">
+        <img src="images/hello-kitty.png" alt="bzclk">
+      </div>
+      <div class="header-text">
+        <h1>Bzclkk</h1>
+      </div>
+    </header>
 
-.loader-img {
-  width: 100px;
-  margin-bottom: 10px;
-}
+    <!-- Services Section -->
+    <div class="services">
+      <div class="service-card" onclick="openGallery('building')">
+        <i class="fas fa-hammer"></i>
+        <h3>Building</h3>
+      </div>
+      <div class="service-card" onclick="openModal('bot')">
+        <i class="fas fa-robot"></i>
+        <h3>Bot Development</h3>
+      </div>
+    </div>
+  </div>
 
-.loader-text {
-  font-size: 1.5rem;
-  color: aqua;
-}
+  <!-- Building Gallery -->
+  <div id="buildingGallery" class="gallery-page hidden">
+    <button onclick="closeGallery()" class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+    <h2 class="gallery-heading">Barrow County, GA</h2>
+    <div class="gallery-grid">
+      <img src="images/1.png" alt="1" />
+      <img src="images/2.png" alt="2" />
+      <img src="images/3.png" alt="3" />
+      <img src="images/4.png" alt="4" />
+      <img src="images/5.png" alt="5" />
+      <img src="images/6.png" alt="6" />
+      <img src="images/7.png" alt="7" />
+      <img src="images/8.png" alt="8" />
+      <img src="images/9.png" alt="9" />
+    </div>
+  </div>
 
-.hidden {
-  display: none;
-}
+  <!-- Bot Modal -->
+  <div id="botModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h2>Bot Development</h2>
+      <p>Custom Discord bots for server management, communities, and specialized functionalities.</p>
+      <div class="modal-gallery">
+        <div class="modal-item">
+          <img src="images/calm-coast.png" alt="Calm Coast Roleplay" />
+          <p>Calm Coast Roleplay</p>
+        </div>
+        <div class="modal-item">
+          <img src="images/florida.png" alt="Florida State Roleplay" />
+          <p>Florida State Roleplay</p>
+        </div>
+        <div class="modal-item">
+          <img src="images/los-angeles.png" alt="Los Angeles State Roleplay" />
+          <p>Los Angeles State Roleplay</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-.container {
-  padding: 20px;
-  text-align: center;
-}
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox hidden" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Zoomed Image" />
+  </div>
 
-.profile-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  <!-- Scripts -->
+  <script>
+    function openGallery(name) {
+      document.getElementById('mainContent').classList.add('hidden');
+      if (name === 'building') document.getElementById('buildingGallery').classList.remove('hidden');
+    }
 
-.profile-pic img {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  border: 3px solid cyan;
-  object-fit: cover;
-}
+    function closeGallery() {
+      document.getElementById('buildingGallery').classList.add('hidden');
+      document.getElementById('mainContent').classList.remove('hidden');
+    }
 
-.header-text h1 {
-  margin: 10px 0;
-  color: cyan;
-}
+    function openModal(service) {
+      if (service === 'bot') {
+        document.getElementById('botModal').classList.remove('hidden');
+      }
+    }
 
-.services {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 40px;
-}
+    function closeModal() {
+      document.getElementById('botModal').classList.add('hidden');
+    }
 
-.service-card {
-  background: #1b1b22;
-  padding: 20px;
-  border-radius: 12px;
-  width: 180px;
-  cursor: pointer;
-  transition: transform 0.2s;
-  text-align: center;
-}
+    document.querySelectorAll('.gallery-grid img').forEach(img => {
+      img.addEventListener('click', (e) => {
+        document.getElementById('lightbox-img').src = e.target.src;
+        document.getElementById('lightbox').classList.remove('hidden');
+      });
+    });
 
-.service-card:hover {
-  transform: scale(1.05);
-  background: #25252d;
-}
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
 
-.service-card i {
-  font-size: 32px;
-  margin-bottom: 10px;
-  color: aqua;
-}
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.add('hidden');
+    }
 
-.gallery-page {
-  padding: 30px;
-}
-
-.back-btn {
-  background: none;
-  border: none;
-  color: cyan;
-  font-size: 16px;
-  cursor: pointer;
-  margin-bottom: 20px;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 16px;
-}
-
-.gallery-grid img {
-  width: 100%;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.gallery-grid img:hover {
-  transform: scale(1.05);
-}
-
-.modal {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10000;
-}
-
-.modal.hidden {
-  display: none;
-}
-
-.modal-content {
-  background: #1a1a1f;
-  border-radius: 10px;
-  padding: 30px;
-  max-width: 700px;
-  width: 90%;
-  color: white;
-  position: relative;
-}
-
-.modal-gallery {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-
-.modal-item {
-  text-align: center;
-  width: 150px;
-}
-
-.modal-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 8px;
-}
-
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 24px;
-  cursor: pointer;
-  color: white;
-}
-
-.lightbox {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10001;
-}
-
-.lightbox.hidden {
-  display: none;
-}
-
-.lightbox img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 10px;
-}
+    window.onload = () => {
+      setTimeout(() => {
+        document.querySelector('.loader-wrapper').style.opacity = '0';
+        setTimeout(() => {
+          document.querySelector('.loader-wrapper').classList.add('hidden');
+          document.getElementById('mainContent').classList.remove('hidden');
+        }, 300);
+      }, 1000);
+    };
+  </script>
+</body>
+</html>
